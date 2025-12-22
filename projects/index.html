@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Mike Kennel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #000000;
+            --bg-soft: #0a0a0a;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent: #cbd5e1;
+            --border: rgba(255, 255, 255, 0.12);
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            cursor: default;
+        }
+
+        #custom-cursor-ring {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+            transform: translate(-50%, -50%);
+            opacity: 0.6;
+        }
+
+        #custom-cursor-ring.hovering {
+            width: 65px;
+            height: 65px;
+            border-color: rgba(255, 255, 255, 1);
+            opacity: 1;
+        }
+
+        #custom-cursor-ring.clicking {
+            transform: translate(-50%, -50%) scale(0.8);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #d1d5db;
+        }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: #94a3b8;
+        }
+
+        .nav-link:hover {
+            color: white;
+        }
+
+        .project-detail-card {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 3rem;
+            transition: all 0.5s ease;
+            margin-bottom: 2rem;
+        }
+
+        .project-detail-card:hover {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #444; }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor-ring"></div>
+
+    <div class="content-layer">
+        <!-- Navigation -->
+        <nav class="fixed w-full z-50 mix-blend-difference px-8 py-10">
+            <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+                <a href="../" class="flex items-center space-x-5">
+                    <img src="https://raw.githubusercontent.com/rtp4cnx8rh-create/mikekennel/a70df4c6008ba3dbac21a3fbf893649fdb10f624/images/Icon%20Mike%20Kennel%20White.png" alt="Mike Kennel Logo" class="w-8 h-8 object-contain">
+                    <span class="mono font-bold text-white">Mike Kennel</span>
+                </a>
+                <div class="hidden md:flex space-x-16">
+                    <a href="/#work" class="nav-link uppercase font-bold">Beats</a>
+                    <a href="/#services" class="nav-link uppercase font-bold">Services</a>
+                    <a href="/#contact" class="nav-link uppercase font-bold">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Projects Overview -->
+        <main class="min-h-screen pt-40 pb-32 px-8">
+            <div class="max-w-[1600px] mx-auto">
+                <p class="mono text-zinc-500 mb-8">Portfolio Archive</p>
+                <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-16 leading-tight">Selected <span class="text-zinc-800 italic">Works</span></h1>
+
+                <p class="text-2xl text-zinc-400 max-w-3xl mb-24 leading-relaxed font-light">
+                    A curated collection of audio engineering projects spanning electronic production, vocal sculpting, and bespoke sound design.
+                </p>
+
+                <!-- Project Grid -->
+                <div class="grid grid-cols-1 gap-8">
+
+                    <!-- Project 01: Deep Horizon -->
+                    <div class="project-detail-card group">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
+                            <div>
+                                <span class="mono text-zinc-600 text-xs mb-4 block">Project 01 / 2024</span>
+                                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition mb-4">Deep Horizon</h2>
+                                <p class="text-zinc-400 text-lg">Full Production / Electronic Landscapes</p>
+                            </div>
+                            <div class="mt-8 lg:mt-0">
+                                <div class="w-20 h-20 rounded-full border-2 border-zinc-800 flex items-center justify-center group-hover:border-white group-hover:bg-white group-hover:text-black transition-all duration-500">
+                                    <i class="fas fa-play text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Role</p>
+                                <p class="text-white font-semibold">Producer, Mixing Engineer</p>
+                            </div>
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Genre</p>
+                                <p class="text-white font-semibold">Ambient Techno / Deep House</p>
+                            </div>
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Duration</p>
+                                <p class="text-white font-semibold">6:42</p>
+                            </div>
+                        </div>
+
+                        <p class="text-zinc-400 leading-relaxed mb-8">
+                            An immersive journey through layered synthesizers and atmospheric textures. This project showcases advanced sound design techniques, spatial mixing, and precise frequency management to create a deep, cinematic listening experience.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">Mixing & Mastering</span>
+                            <span class="tag">Sound Design</span>
+                            <span class="tag">Synthesis</span>
+                            <span class="tag">Spatial Audio</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 02: Vocal Sculpting -->
+                    <div class="project-detail-card group">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
+                            <div>
+                                <span class="mono text-zinc-600 text-xs mb-4 block">Project 02 / 2024</span>
+                                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition mb-4">Vocal Sculpting</h2>
+                                <p class="text-zinc-400 text-lg">Advanced Tuning / Creative FX</p>
+                            </div>
+                            <div class="mt-8 lg:mt-0">
+                                <div class="w-20 h-20 rounded-full border-2 border-zinc-800 flex items-center justify-center group-hover:border-white group-hover:bg-white group-hover:text-black transition-all duration-500">
+                                    <i class="fas fa-microphone text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Role</p>
+                                <p class="text-white font-semibold">Vocal Engineer, Tuning Specialist</p>
+                            </div>
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Genre</p>
+                                <p class="text-white font-semibold">Pop / R&B</p>
+                            </div>
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Tracks</p>
+                                <p class="text-white font-semibold">12 Vocal Layers</p>
+                            </div>
+                        </div>
+
+                        <p class="text-zinc-400 leading-relaxed mb-8">
+                            Precision vocal tuning and dynamic processing for a modern pop production. This project demonstrates meticulous pitch correction, harmonic enhancement, and creative vocal layering to achieve a polished, radio-ready sound.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">Vocal Tuning</span>
+                            <span class="tag">Melodyne</span>
+                            <span class="tag">Compression</span>
+                            <span class="tag">Vocal Layering</span>
+                            <span class="tag">De-Essing</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 03: Minimal Beats -->
+                    <div class="project-detail-card group">
+                        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8">
+                            <div>
+                                <span class="mono text-zinc-600 text-xs mb-4 block">Project 03 / 2023</span>
+                                <h2 class="text-5xl md:text-7xl font-bold tracking-tighter group-hover:text-white transition mb-4">Minimal Beats</h2>
+                                <p class="text-zinc-400 text-lg">Custom Arrangement / Urban Soul</p>
+                            </div>
+                            <div class="mt-8 lg:mt-0">
+                                <div class="w-20 h-20 rounded-full border-2 border-zinc-800 flex items-center justify-center group-hover:border-white group-hover:bg-white group-hover:text-black transition-all duration-500">
+                                    <i class="fas fa-drum text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Role</p>
+                                <p class="text-white font-semibold">Producer, Beat Maker</p>
+                            </div>
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">Genre</p>
+                                <p class="text-white font-semibold">Lo-Fi Hip Hop / Neo-Soul</p>
+                            </div>
+                            <div>
+                                <p class="mono text-[10px] text-zinc-600 mb-2">BPM</p>
+                                <p class="text-white font-semibold">85 BPM</p>
+                            </div>
+                        </div>
+
+                        <p class="text-zinc-400 leading-relaxed mb-8">
+                            A stripped-back instrumental emphasizing groove and space. Built on organic drum samples, warm basslines, and subtle melodic elements, this track demonstrates the power of restraint in modern beat production.
+                        </p>
+
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">Beat Production</span>
+                            <span class="tag">Sampling</span>
+                            <span class="tag">Lo-Fi Processing</span>
+                            <span class="tag">Arrangement</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CTA Section -->
+                <div class="mt-32 text-center border-t border-zinc-900 pt-24">
+                    <p class="mono text-zinc-600 mb-8">Ready to Start?</p>
+                    <h2 class="text-5xl md:text-7xl font-bold tracking-tighter mb-12">Let's Create Your <span class="text-zinc-800 italic">Sonic Identity</span></h2>
+                    <a href="/#contact" class="inline-block border border-white px-12 py-6 text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-500">
+                        Start a Project
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="py-24 px-8 border-t border-zinc-900/50">
+            <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center text-zinc-700">
+                <div class="flex items-center space-x-6 mb-12 md:mb-0">
+                    <img src="https://raw.githubusercontent.com/rtp4cnx8rh-create/mikekennel/a70df4c6008ba3dbac21a3fbf893649fdb10f624/images/Icon%20Mike%20Kennel%20White.png" alt="Logo" class="w-6 h-6 opacity-30">
+                    <span class="mono text-[10px] tracking-widest font-bold">© 2025 Mike Kennel • Freelance Music Producer • Pirmasens, Germany</span>
+                </div>
+                <div class="flex space-x-16 text-[10px] uppercase tracking-[0.4em] font-black">
+                    <a href="/privacy/" class="hover:text-white transition">Privacy</a>
+                    <a href="/legal/" class="hover:text-white transition">Legal</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const ring = document.getElementById('custom-cursor-ring');
+
+        document.addEventListener('mousemove', (e) => {
+            ring.style.left = e.clientX + 'px';
+            ring.style.top = e.clientY + 'px';
+        });
+
+        document.addEventListener('mousedown', () => ring.classList.add('clicking'));
+        document.addEventListener('mouseup', () => ring.classList.remove('clicking'));
+
+        const updateInteractives = () => {
+            const interactives = document.querySelectorAll('a, button, .project-detail-card');
+            interactives.forEach(el => {
+                el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+                el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+            });
+        };
+        updateInteractives();
+    </script>
+</body>
+</html>
