@@ -226,18 +226,18 @@
         </nav>
 
         <!-- Hero -->
-        <main class="min-h-screen flex flex-col justify-center px-4 md:px-8 pt-20 md:pt-0 relative overflow-hidden">
+        <main class="min-h-screen flex flex-col justify-start px-4 md:px-8 pt-32 md:pt-40 relative overflow-hidden">
             <!-- Background Grid -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] md:bg-[size:6rem_6rem] opacity-20"></div>
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] md:bg-[size:6rem_6rem] opacity-30"></div>
 
             <!-- Gradient Orbs -->
             <div class="absolute top-1/4 -left-32 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-[100px] md:blur-[120px]"></div>
             <div class="absolute bottom-1/4 -right-32 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-[100px] md:blur-[120px]"></div>
 
             <div class="max-w-[1600px] mx-auto w-full relative z-10">
-                <!-- Main Headline -->
-                <div class="mb-10 md:mb-16">
-                    <h1 class="hero-title mb-6 md:mb-8 leading-[0.9] md:leading-[0.9]">
+                <!-- Header -->
+                <div class="mb-12 md:mb-20">
+                    <h1 class="hero-title leading-[0.9] md:leading-[0.9]">
                         PROFESSIONAL<br>
                         <span class="relative inline-block">
                             <span class="text-zinc-800 italic">MUSIC</span>
@@ -245,46 +245,64 @@
                         </span><br>
                         PRODUCTION
                     </h1>
-                    <p class="text-base md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light">
+                </div>
+
+                <!-- Hero Content -->
+                <div class="mb-32 md:mb-40">
+                    <p class="text-base md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light mb-8 md:mb-12">
                         High-quality mixing, mastering & beat production for artists worldwide.<br class="hidden md:block">
                         <span class="text-zinc-500">Based in Pirmasens, Germany.</span>
                     </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 md:gap-4">
+                        <a href="beats/" class="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase transition-all duration-300 text-center overflow-hidden">
+                            <div class="absolute inset-0 bg-gradient-to-r from-zinc-100 to-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                            <i class="fas fa-music text-sm md:text-base relative z-10"></i>
+                            <span class="relative z-10">Browse Beats</span>
+                            <i class="fas fa-arrow-right text-xs relative z-10 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="https://www.fiverr.com/mikekennel?public_mode=true" target="_blank" class="group inline-flex items-center justify-center gap-3 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300 text-center">
+                            <i class="fas fa-star text-sm md:text-base"></i>
+                            Fiverr Profile
+                        </a>
+                        <a href="contact/" class="group inline-flex items-center justify-center gap-3 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300 text-center">
+                            <i class="fas fa-envelope text-sm md:text-base"></i>
+                            Contact
+                        </a>
+                    </div>
                 </div>
 
-                <!-- CTA Buttons -->
-                <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 md:gap-4">
-                    <a href="beats/" class="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase transition-all duration-300 text-center overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-r from-zinc-100 to-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                        <i class="fas fa-music text-sm md:text-base relative z-10"></i>
-                        <span class="relative z-10">Browse Beats</span>
-                        <i class="fas fa-arrow-right text-xs relative z-10 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
-                    <a href="https://www.fiverr.com/mikekennel?public_mode=true" target="_blank" class="group inline-flex items-center justify-center gap-3 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300 text-center">
-                        <i class="fas fa-star text-sm md:text-base"></i>
-                        Fiverr Profile
-                    </a>
-                    <a href="contact/" class="group inline-flex items-center justify-center gap-3 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300 text-center">
-                        <i class="fas fa-envelope text-sm md:text-base"></i>
-                        Contact
-                    </a>
-                </div>
+                <!-- Stats - Weiter unten -->
+                <div class="grid grid-cols-3 gap-3 md:gap-6">
+                    <!-- Projects - Linksbündig -->
+                    <div class="group relative overflow-hidden text-left">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                        <div class="absolute top-0 left-0 w-20 h-20 md:w-32 md:h-32 bg-white/[0.02] rounded-full blur-2xl group-hover:bg-white/[0.05] transition-all duration-700"></div>
+                        <div class="relative p-6 md:p-10">
+                            <p class="text-3xl md:text-5xl lg:text-6xl font-black mb-2 bg-gradient-to-br from-white to-zinc-400 bg-clip-text text-transparent">500+</p>
+                            <p class="mono text-zinc-600 text-[9px] md:text-[10px] tracking-wider">PROJECTS COMPLETED</p>
+                        </div>
+                    </div>
 
-                <!-- Stats -->
-                <div class="grid grid-cols-3 gap-6 md:gap-12 mt-16 md:mt-24">
-                    <div class="group relative p-6 md:p-8 border border-zinc-900 bg-zinc-950/50 backdrop-blur-sm hover:border-zinc-700 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <p class="text-3xl md:text-5xl font-bold mb-2 relative z-10">500+</p>
-                        <p class="mono text-zinc-500 text-[9px] md:text-[10px] relative z-10">Projects</p>
+                    <!-- Rating - Zentriert -->
+                    <div class="group relative overflow-hidden text-center">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-20 md:w-32 md:h-32 bg-white/[0.02] rounded-full blur-2xl group-hover:bg-white/[0.05] transition-all duration-700"></div>
+                        <div class="relative p-6 md:p-10">
+                            <p class="text-3xl md:text-5xl lg:text-6xl font-black mb-2 bg-gradient-to-br from-white to-zinc-400 bg-clip-text text-transparent">5.0</p>
+                            <p class="mono text-zinc-600 text-[9px] md:text-[10px] tracking-wider">AVERAGE RATING</p>
+                        </div>
                     </div>
-                    <div class="group relative p-6 md:p-8 border border-zinc-900 bg-zinc-950/50 backdrop-blur-sm hover:border-zinc-700 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <p class="text-3xl md:text-5xl font-bold mb-2 relative z-10">5.0</p>
-                        <p class="mono text-zinc-500 text-[9px] md:text-[10px] relative z-10">Rating</p>
-                    </div>
-                    <div class="group relative p-6 md:p-8 border border-zinc-900 bg-zinc-950/50 backdrop-blur-sm hover:border-zinc-700 transition-all duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                        <p class="text-3xl md:text-5xl font-bold mb-2 relative z-10">48h</p>
-                        <p class="mono text-zinc-500 text-[9px] md:text-[10px] relative z-10">Delivery</p>
+
+                    <!-- Delivery - Rechtsbündig -->
+                    <div class="group relative overflow-hidden text-right">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.03] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
+                        <div class="absolute top-0 right-0 w-20 h-20 md:w-32 md:h-32 bg-white/[0.02] rounded-full blur-2xl group-hover:bg-white/[0.05] transition-all duration-700"></div>
+                        <div class="relative p-6 md:p-10">
+                            <p class="text-3xl md:text-5xl lg:text-6xl font-black mb-2 bg-gradient-to-br from-white to-zinc-400 bg-clip-text text-transparent">48h</p>
+                            <p class="mono text-zinc-600 text-[9px] md:text-[10px] tracking-wider">AVG DELIVERY TIME</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -480,8 +498,15 @@
             badgeTrigger.classList.remove('opacity-0', 'pointer-events-none');
         }
 
-        badgeTrigger.addEventListener('click', openPanel);
-        closePanel.addEventListener('click', closePanel);
+        badgeTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openPanel();
+        });
+
+        closePanel.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closePanel();
+        });
 
         // Close on outside click
         document.addEventListener('click', (e) => {
