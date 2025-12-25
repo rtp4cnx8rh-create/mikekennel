@@ -27,31 +27,6 @@
             cursor: default;
         }
 
-        /* Custom Cursor Ring Style - Always White */
-        #custom-cursor-ring {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
-            transform: translate(-50%, -50%);
-            opacity: 0.6;
-        }
-
-        #custom-cursor-ring.hovering {
-            width: 65px;
-            height: 65px;
-            border-color: rgba(255, 255, 255, 1);
-            opacity: 1;
-        }
-
-        #custom-cursor-ring.clicking {
-            transform: translate(-50%, -50%) scale(0.8);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
 
         .content-layer {
             position: relative;
@@ -167,10 +142,74 @@
 </head>
 <body>
 
-    <!-- Custom Cursor Ring -->
-    <div id="custom-cursor-ring"></div>
-
     <div class="content-layer">
+        <!-- Floating Available Badge -->
+        <div id="floating-badge" class="fixed right-0 top-1/2 -translate-y-1/2 z-[60] transition-all duration-300">
+            <!-- Collapsed Badge -->
+            <button id="badge-trigger" class="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-3 md:py-4 rounded-l-full border border-r-0 border-zinc-800/50 bg-zinc-900/90 backdrop-blur-md hover:bg-zinc-800/90 transition-all duration-300 shadow-xl">
+                <div class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </div>
+                <span class="mono text-white text-[9px] md:text-[10px] font-bold tracking-wider whitespace-nowrap">AVAILABLE</span>
+            </button>
+
+            <!-- Expanded Panel -->
+            <div id="badge-panel" class="absolute right-0 top-0 w-72 md:w-80 bg-zinc-900/95 backdrop-blur-xl border border-zinc-800 rounded-l-2xl shadow-2xl translate-x-full opacity-0 pointer-events-none transition-all duration-500">
+                <div class="p-6 md:p-8">
+                    <!-- Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-2">
+                            <div class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                            </div>
+                            <span class="mono text-white text-xs font-bold tracking-wider">AVAILABLE FOR PROJECTS</span>
+                        </div>
+                        <button id="close-panel" class="text-zinc-500 hover:text-white transition-colors">
+                            <i class="fas fa-times text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Contact Options -->
+                    <div class="space-y-3">
+                        <a href="mailto:management@mikekennel.de" class="group flex items-center gap-4 p-4 border border-zinc-800 bg-zinc-950/50 hover:border-zinc-600 hover:bg-zinc-800/50 transition-all duration-300 rounded-lg">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-700 group-hover:border-white group-hover:scale-110 transition-all">
+                                <i class="fas fa-envelope text-zinc-400 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs font-bold text-white mb-1">Email</p>
+                                <p class="text-[10px] text-zinc-500 mono">Quick response</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-zinc-600 group-hover:text-white group-hover:translate-x-1 transition-all text-sm"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/mikekennel_/" target="_blank" class="group flex items-center gap-4 p-4 border border-zinc-800 bg-zinc-950/50 hover:border-zinc-600 hover:bg-zinc-800/50 transition-all duration-300 rounded-lg">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-700 group-hover:border-white group-hover:scale-110 transition-all">
+                                <i class="fab fa-instagram text-zinc-400 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs font-bold text-white mb-1">Instagram</p>
+                                <p class="text-[10px] text-zinc-500 mono">@mikekennel_</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-zinc-600 group-hover:text-white group-hover:translate-x-1 transition-all text-sm"></i>
+                        </a>
+
+                        <a href="https://www.fiverr.com/mikekennel?public_mode=true" target="_blank" class="group flex items-center gap-4 p-4 border border-zinc-800 bg-zinc-950/50 hover:border-zinc-600 hover:bg-zinc-800/50 transition-all duration-300 rounded-lg">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-full border border-zinc-700 group-hover:border-white group-hover:scale-110 transition-all">
+                                <i class="fas fa-star text-zinc-400 group-hover:text-white transition-colors"></i>
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-xs font-bold text-white mb-1">Fiverr</p>
+                                <p class="text-[10px] text-zinc-500 mono">View services</p>
+                            </div>
+                            <i class="fas fa-arrow-right text-zinc-600 group-hover:text-white group-hover:translate-x-1 transition-all text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Navigation -->
         <nav class="fixed w-full z-50 mix-blend-difference px-4 md:px-8 py-6 md:py-10">
             <div class="max-w-[1600px] mx-auto flex justify-between items-center">
@@ -187,30 +226,66 @@
         </nav>
 
         <!-- Hero -->
-        <main class="min-h-screen flex flex-col justify-center px-4 md:px-8 pt-20 md:pt-0">
-            <div class="max-w-[1600px] mx-auto w-full">
-                <div class="mb-8 md:mb-16">
-                    <p class="mono text-zinc-400 mb-6 md:mb-8 font-semibold text-[10px] md:text-xs">Music Production • Mixing & Mastering • Production Lessons</p>
-                    <h1 class="hero-title">
+        <main class="min-h-screen flex flex-col justify-center px-4 md:px-8 pt-20 md:pt-0 relative overflow-hidden">
+            <!-- Background Grid -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem] md:bg-[size:6rem_6rem] opacity-20"></div>
+
+            <!-- Gradient Orbs -->
+            <div class="absolute top-1/4 -left-32 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-[100px] md:blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-32 w-64 h-64 md:w-96 md:h-96 bg-white/5 rounded-full blur-[100px] md:blur-[120px]"></div>
+
+            <div class="max-w-[1600px] mx-auto w-full relative z-10">
+                <!-- Main Headline -->
+                <div class="mb-10 md:mb-16">
+                    <h1 class="hero-title mb-6 md:mb-8 leading-[0.9] md:leading-[0.9]">
                         PROFESSIONAL<br>
-                        <span class="text-zinc-800 italic">MUSIC</span><br>
-                        PRODUCTION.
+                        <span class="relative inline-block">
+                            <span class="text-zinc-800 italic">MUSIC</span>
+                            <div class="absolute -bottom-2 md:-bottom-4 left-0 w-full h-1 md:h-2 bg-gradient-to-r from-zinc-800 to-transparent"></div>
+                        </span><br>
+                        PRODUCTION
                     </h1>
+                    <p class="text-base md:text-2xl text-zinc-400 max-w-2xl leading-relaxed font-light">
+                        High-quality mixing, mastering & beat production for artists worldwide.<br class="hidden md:block">
+                        <span class="text-zinc-500">Based in Pirmasens, Germany.</span>
+                    </p>
                 </div>
 
-                <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-4 md:gap-6 mt-12 md:mt-24">
-                    <a href="beats/" class="inline-flex items-center justify-center gap-2 md:gap-3 border border-white px-6 md:px-10 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:bg-white hover:text-black transition-all duration-500 text-center">
-                        <i class="fas fa-music text-sm md:text-base"></i>
-                        Browse Beats
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 md:gap-4">
+                    <a href="beats/" class="group relative inline-flex items-center justify-center gap-3 bg-white text-black px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase transition-all duration-300 text-center overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-r from-zinc-100 to-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                        <i class="fas fa-music text-sm md:text-base relative z-10"></i>
+                        <span class="relative z-10">Browse Beats</span>
+                        <i class="fas fa-arrow-right text-xs relative z-10 group-hover:translate-x-1 transition-transform"></i>
                     </a>
-                    <a href="https://www.fiverr.com/mikekennel?public_mode=true" target="_blank" class="inline-flex items-center justify-center gap-2 md:gap-3 border border-zinc-700 px-6 md:px-10 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-500 text-center">
+                    <a href="https://www.fiverr.com/mikekennel?public_mode=true" target="_blank" class="group inline-flex items-center justify-center gap-3 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300 text-center">
                         <i class="fas fa-star text-sm md:text-base"></i>
                         Fiverr Profile
                     </a>
-                    <a href="contact/" class="inline-flex items-center justify-center gap-2 md:gap-3 border border-zinc-700 px-6 md:px-10 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-500 text-center">
+                    <a href="contact/" class="group inline-flex items-center justify-center gap-3 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm px-8 md:px-12 py-4 md:py-5 text-xs md:text-sm font-bold tracking-widest uppercase hover:border-white hover:bg-white hover:text-black transition-all duration-300 text-center">
                         <i class="fas fa-envelope text-sm md:text-base"></i>
                         Contact
                     </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-3 gap-6 md:gap-12 mt-16 md:mt-24">
+                    <div class="group relative p-6 md:p-8 border border-zinc-900 bg-zinc-950/50 backdrop-blur-sm hover:border-zinc-700 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <p class="text-3xl md:text-5xl font-bold mb-2 relative z-10">500+</p>
+                        <p class="mono text-zinc-500 text-[9px] md:text-[10px] relative z-10">Projects</p>
+                    </div>
+                    <div class="group relative p-6 md:p-8 border border-zinc-900 bg-zinc-950/50 backdrop-blur-sm hover:border-zinc-700 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <p class="text-3xl md:text-5xl font-bold mb-2 relative z-10">5.0</p>
+                        <p class="mono text-zinc-500 text-[9px] md:text-[10px] relative z-10">Rating</p>
+                    </div>
+                    <div class="group relative p-6 md:p-8 border border-zinc-900 bg-zinc-950/50 backdrop-blur-sm hover:border-zinc-700 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <p class="text-3xl md:text-5xl font-bold mb-2 relative z-10">48h</p>
+                        <p class="mono text-zinc-500 text-[9px] md:text-[10px] relative z-10">Delivery</p>
+                    </div>
                 </div>
             </div>
         </main>
@@ -383,24 +458,37 @@
     </div>
 
     <script>
-        const ring = document.getElementById('custom-cursor-ring');
+        /**
+         * Floating Badge Toggle
+         */
+        const badgeTrigger = document.getElementById('badge-trigger');
+        const badgePanel = document.getElementById('badge-panel');
+        const closePanel = document.getElementById('close-panel');
+        let isOpen = false;
 
-        document.addEventListener('mousemove', (e) => {
-            ring.style.left = e.clientX + 'px';
-            ring.style.top = e.clientY + 'px';
+        function openPanel() {
+            isOpen = true;
+            badgePanel.classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+            badgePanel.classList.add('translate-x-0', 'opacity-100', 'pointer-events-auto');
+            badgeTrigger.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function closePanel() {
+            isOpen = false;
+            badgePanel.classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+            badgePanel.classList.remove('translate-x-0', 'opacity-100', 'pointer-events-auto');
+            badgeTrigger.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        badgeTrigger.addEventListener('click', openPanel);
+        closePanel.addEventListener('click', closePanel);
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (isOpen && !badgePanel.contains(e.target) && !badgeTrigger.contains(e.target)) {
+                closePanel();
+            }
         });
-
-        document.addEventListener('mousedown', () => ring.classList.add('clicking'));
-        document.addEventListener('mouseup', () => ring.classList.remove('clicking'));
-
-        const updateInteractives = () => {
-            const interactives = document.querySelectorAll('a, button, input, textarea');
-            interactives.forEach(el => {
-                el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
-                el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
-            });
-        };
-        updateInteractives();
 
         /**
          * Scroll Reveal

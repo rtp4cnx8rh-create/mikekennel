@@ -26,30 +26,6 @@
             cursor: default;
         }
 
-        #custom-cursor-ring {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease-out, width 0.3s ease, height 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
-            transform: translate(-50%, -50%);
-            opacity: 0.6;
-        }
-
-        #custom-cursor-ring.hovering {
-            width: 65px;
-            height: 65px;
-            border-color: rgba(255, 255, 255, 1);
-            opacity: 1;
-        }
-
-        #custom-cursor-ring.clicking {
-            transform: translate(-50%, -50%) scale(0.8);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
 
         .content-layer {
             position: relative;
@@ -81,8 +57,6 @@
     </style>
 </head>
 <body>
-
-    <div id="custom-cursor-ring"></div>
 
     <div class="content-layer">
         <!-- Navigation -->
@@ -181,24 +155,6 @@
     </div>
 
     <script>
-        const ring = document.getElementById('custom-cursor-ring');
-
-        document.addEventListener('mousemove', (e) => {
-            ring.style.left = e.clientX + 'px';
-            ring.style.top = e.clientY + 'px';
-        });
-
-        document.addEventListener('mousedown', () => ring.classList.add('clicking'));
-        document.addEventListener('mouseup', () => ring.classList.remove('clicking'));
-
-        const updateInteractives = () => {
-            const interactives = document.querySelectorAll('a, button');
-            interactives.forEach(el => {
-                el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
-                el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
-            });
-        };
-        updateInteractives();
     </script>
 </body>
 </html>
